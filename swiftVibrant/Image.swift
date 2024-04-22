@@ -7,15 +7,30 @@
 //
 
 import Foundation
-import UIKit
+
+#if os(iOS)
+  import UIKit
+#elseif os(macOS)
+  import AppKit
+#endif
 
 public class Image {
-    var image: UIImage
-    
-    init(image: UIImage) {
-        self.image = image
-    }
-    
+    #if os(iOS)
+      var image: UIImage
+    #elseif os(macOS)
+      var image: NSImage
+    #endif
+
+    #if os(iOS)
+      init(image: UIImage) {
+          self.image = image
+      }
+    #elseif os(macOS)
+      init(image: NSImage) {
+          self.image = image
+      }
+    #endif
+
     func applyFilter(_ filter: Filter)->[UInt8] {
         guard let imageData = self.getImageData() else {
             return []
@@ -64,38 +79,76 @@ public class Image {
     func scale(by scale: CGFloat) {
         self.image = Image.scaleImage(image: self.image, by: scale)
     }
-    
-    private static func scaleImage(image: UIImage, by scale: CGFloat)->UIImage {
-        if scale == 1 { return image }
-        
-        let imageRef = image.cgImage!
-        let width = imageRef.width
-        let height = imageRef.height
-        
-        var bounds = CGSize(width: width, height: height)
-        
-        bounds.width = CGFloat(width) * scale
-        bounds.height = CGFloat(height) * scale
-        
-        UIGraphicsBeginImageContext(bounds)
-        image.draw(in: CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height))
-        let imageCopy = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return imageCopy ?? image
-    }
-    
-    private static func makeBytes(from image: UIImage) -> [UInt8]? {
-        guard let cgImage = image.cgImage else {
-            return nil
-        }
-        if isCompatibleImage(cgImage) {
-            return makeBytesFromCompatibleImage(cgImage)
-        } else {
-            return makeBytesFromIncompatibleImage(cgImage)
-        }
-    }
-    
+
+    #if os(iOS)
+      private static func scaleImage(image: UIImage, by scale: CGFloat)->UIImage {
+          if scale == 1 { return image }
+
+          let imageRef = image.cgImage!
+          let width = imageRef.width
+          let height = imageRef.height
+
+          var bounds = CGSize(width: width, height: height)
+
+          bounds.width = CGFloat(width) * scale
+          bounds.height = CGFloat(height) * scale
+
+          UIGraphicsBeginImageContext(bounds)
+          image.draw(in: CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height))
+          let imageCopy = UIGraphicsGetImageFromCurrentImageContext()
+          UIGraphicsEndImageContext()
+
+          return imageCopy ?? image
+      }
+
+      private static func makeBytes(from image: UIImage) -> [UInt8]? {
+          guard let cgImage = image.cgImage else {
+              return nil
+          }
+          if isCompatibleImage(cgImage) {
+              return makeBytesFromCompatibleImage(cgImage)
+          } else {
+              return makeBytesFromIncompatibleImage(cgImage)
+          }
+      }
+    #elseif os(macOS)
+      private static func scaleImage(image: NSImage, by scale: CGFloat)->NSImage {
+          var rect = NSRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+
+          if scale == 1 { return image }
+
+          let imageRef = image.cgImage(forProposedRect: &rect, context: nil, hints: nil)!
+          let width = imageRef.width
+          let height = imageRef.height
+
+          var bounds = CGSize(width: width, height: height)
+
+          bounds.width = CGFloat(width) * scale
+          bounds.height = CGFloat(height) * scale
+
+          var newImage = NSImage(size: NSSize(width: bounds.width, height: bounds.height))
+
+          newImage.lockFocus()
+          image.draw(in: CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height))
+          newImage.unlockFocus()
+
+          return newImage
+      }
+
+      private static func makeBytes(from image: NSImage) -> [UInt8]? {
+          var rect = NSRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+
+          guard let cgImage = image.cgImage(forProposedRect: &rect, context: nil, hints: nil) else {
+              return nil
+          }
+          if isCompatibleImage(cgImage) {
+              return makeBytesFromCompatibleImage(cgImage)
+          } else {
+              return makeBytesFromIncompatibleImage(cgImage)
+          }
+      }
+    #endif
+
     private static func isCompatibleImage(_ cgImage: CGImage) -> Bool {
         guard let colorSpace = cgImage.colorSpace else {
             return false

@@ -7,7 +7,11 @@
 //  Copyright © 2020 Bryce Dougherty. All rights reserved.
 //
 
-import UIKit
+#if os(iOS)
+  import UIKit
+#elseif os(macOS)
+  import AppKit
+#endif
 
 public class Generator {
     

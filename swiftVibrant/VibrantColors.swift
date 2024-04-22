@@ -6,7 +6,13 @@
 //  Copyright © 2020 Bryce Dougherty. All rights reserved.
 //
 
-import UIKit
+#if os(iOS)
+  import UIKit
+#elseif os(macOS)
+  import AppKit
+#endif
+
+import SwiftUI
 
 public typealias Vec3<T> = (T, T, T)
 public typealias RGB = (r: UInt8, g: UInt8, b: UInt8)
@@ -38,8 +44,14 @@ public class Swatch: Equatable {
     private var _population: Int
 
     private var _hex: String?
-    
+
+    #if os(iOS)
     private var _uiColor: UIColor?
+    #elseif os(macOS)
+    private var _uiColor: NSColor?
+    #endif
+
+    private var _color: SwiftUI.Color?
 
     var r: UInt8 { self._rgb.r }
 
@@ -47,7 +59,7 @@ public class Swatch: Equatable {
 
     var b: UInt8 { self._rgb.b }
 
-    var rgb: RGB { self._rgb }
+    public var rgb: RGB { self._rgb }
 
     public var hsl: HSL {
         if self._hsl == nil {
@@ -65,7 +77,7 @@ public class Swatch: Equatable {
         return self._hex!
     }
 
-    
+    #if os(iOS)
     public var uiColor: UIColor {
         if self._uiColor == nil {
             let rgb = self._rgb
@@ -73,7 +85,24 @@ public class Swatch: Equatable {
         }
         return self._uiColor!
     }
-    
+    #elseif os(macOS)
+    public var uiColor: NSColor {
+        if self._uiColor == nil {
+            let rgb = self._rgb
+            self._uiColor = apply(rgbToUIColor, rgb)
+        }
+        return self._uiColor!
+    }
+    #endif
+
+    public var color: SwiftUI.Color {
+        if self._color == nil {
+            let rgb = self._rgb
+            self._color = apply(rgbToColor, rgb)
+        }
+        return self._color!
+    }
+
     static func applyFilter(colors: [Swatch], filter: Filter)->[Swatch] {
         var colors = colors
         colors = colors.filter { (swatch) -> Bool in
@@ -109,32 +138,70 @@ public class Swatch: Equatable {
         return self._yiq!
     }
 
+    #if os(iOS)
     private var _titleTextColor: UIColor?
+    #elseif os(macOS)
+    private var _titleTextColor: NSColor?
+    #endif
 
+    #if os(iOS)
     private var _bodyTextColor: UIColor?
+    #elseif os(macOS)
+    private var _bodyTextColor: NSColor?
+    #endif
 
+    #if os(iOS)
     public var titleTextColor: UIColor {
         if self._titleTextColor == nil {
             self._titleTextColor = self.getYiq() < 200 ? .white : .black
         }
         return self._titleTextColor!
     }
+    #elseif os(macOS)
+    public var titleTextColor: NSColor {
+        if self._titleTextColor == nil {
+            self._titleTextColor = self.getYiq() < 200 ? .white : .black
+        }
+        return self._titleTextColor!
+    }
+    #endif
 
+    #if os(iOS)
     public var bodyTextColor: UIColor {
         if self._bodyTextColor == nil {
             self._bodyTextColor = self.getYiq() < 150 ? .white : .black
         }
         return self._bodyTextColor!
     }
+    #elseif os(macOS)
+    public var bodyTextColor: NSColor {
+        if self._bodyTextColor == nil {
+            self._bodyTextColor = self.getYiq() < 150 ? .white : .black
+        }
+        return self._bodyTextColor!
+    }
+    #endif
 
+    #if os(iOS)
     public func getTitleTextColor()->UIColor {
         return self.titleTextColor
     }
+    #elseif os(macOS)
+    public func getTitleTextColor()->NSColor {
+        return self.titleTextColor
+    }
+    #endif
 
+    #if os(iOS)
     public func getBodyTextColor()->UIColor {
         return self.bodyTextColor
     }
-    
+    #elseif os(macOS)
+    public func getBodyTextColor()->NSColor {
+        return self.bodyTextColor
+    }
+    #endif
+
     public static func == (lhs: Swatch, rhs: Swatch) -> Bool {
         return lhs.rgb == rhs.rgb
     }

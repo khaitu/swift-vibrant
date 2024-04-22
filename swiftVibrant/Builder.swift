@@ -6,20 +6,36 @@
 //  Copyright © 2020 Bryce Dougherty. All rights reserved.
 //
 
-
-import UIKit
+#if os(iOS)
+  import UIKit
+#elseif os(macOS)
+  import AppKit
+#endif
 
 public typealias Callback<T> = (T)->Void
 
 public class Builder {
 
-    private var _src: UIImage
+    #if os(iOS)
+      private var _src: UIImage
+    #elseif os(macOS)
+      private var _src: NSImage
+    #endif
+
     private var _opts: Vibrant.Options
-    
-    init(_ src: UIImage, _ opts: Vibrant.Options = Vibrant.Options()) {
-        self._src = src
-        self._opts = opts
-    }
+
+    #if os(iOS)
+      init(_ src: UIImage, _ opts: Vibrant.Options = Vibrant.Options()) {
+          self._src = src
+          self._opts = opts
+      }
+    #elseif os(macOS)
+      init(_ src: NSImage, _ opts: Vibrant.Options = Vibrant.Options()) {
+          self._src = src
+          self._opts = opts
+      }
+    #endif
+
     public func maxColorCount(_ n: Int)->Builder {
         self._opts.colorCount = n
         return self

@@ -1,0 +1,410 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E20953E42BC9E72300A066E1 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20953D82BC9E72300A066E1 /* Filter.swift */; };
+		E20953E52BC9E72300A066E1 /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20953D92BC9E72300A066E1 /* Generator.swift */; };
+		E20953E62BC9E72300A066E1 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20953DA2BC9E72300A066E1 /* Image.swift */; };
+		E20953E72BC9E72300A066E1 /* Vibrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20953DB2BC9E72300A066E1 /* Vibrant.swift */; };
+		E20953E82BC9E72300A066E1 /* Quantizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20953DC2BC9E72300A066E1 /* Quantizer.swift */; };
+		E20953E92BC9E72300A066E1 /* VibrantColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20953DD2BC9E72300A066E1 /* VibrantColors.swift */; };
+		E20953EA2BC9E72300A066E1 /* ColorConverters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20953DE2BC9E72300A066E1 /* ColorConverters.swift */; };
+		E20953EB2BC9E72300A066E1 /* MMCQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20953DF2BC9E72300A066E1 /* MMCQ.swift */; };
+		E20953EC2BC9E72300A066E1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20953E02BC9E72300A066E1 /* Constants.swift */; };
+		E20953ED2BC9E72300A066E1 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20953E12BC9E72300A066E1 /* Util.swift */; };
+		E20953EE2BC9E72300A066E1 /* Vbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20953E22BC9E72300A066E1 /* Vbox.swift */; };
+		E20953EF2BC9E72300A066E1 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20953E32BC9E72300A066E1 /* Builder.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E20953CE2BC9E6E000A066E1 /* SwiftVibrant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftVibrant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E20953D82BC9E72300A066E1 /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		E20953D92BC9E72300A066E1 /* Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
+		E20953DA2BC9E72300A066E1 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		E20953DB2BC9E72300A066E1 /* Vibrant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vibrant.swift; sourceTree = "<group>"; };
+		E20953DC2BC9E72300A066E1 /* Quantizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quantizer.swift; sourceTree = "<group>"; };
+		E20953DD2BC9E72300A066E1 /* VibrantColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VibrantColors.swift; sourceTree = "<group>"; };
+		E20953DE2BC9E72300A066E1 /* ColorConverters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorConverters.swift; sourceTree = "<group>"; };
+		E20953DF2BC9E72300A066E1 /* MMCQ.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMCQ.swift; sourceTree = "<group>"; };
+		E20953E02BC9E72300A066E1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E20953E12BC9E72300A066E1 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		E20953E22BC9E72300A066E1 /* Vbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vbox.swift; sourceTree = "<group>"; };
+		E20953E32BC9E72300A066E1 /* Builder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E20953CB2BC9E6E000A066E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E20953C42BC9E6E000A066E1 = {
+			isa = PBXGroup;
+			children = (
+				E20953D02BC9E6E000A066E1 /* SwiftVibrant */,
+				E20953CF2BC9E6E000A066E1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E20953CF2BC9E6E000A066E1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E20953CE2BC9E6E000A066E1 /* SwiftVibrant.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E20953D02BC9E6E000A066E1 /* SwiftVibrant */ = {
+			isa = PBXGroup;
+			children = (
+				E20953E32BC9E72300A066E1 /* Builder.swift */,
+				E20953DE2BC9E72300A066E1 /* ColorConverters.swift */,
+				E20953E02BC9E72300A066E1 /* Constants.swift */,
+				E20953D82BC9E72300A066E1 /* Filter.swift */,
+				E20953D92BC9E72300A066E1 /* Generator.swift */,
+				E20953DA2BC9E72300A066E1 /* Image.swift */,
+				E20953DF2BC9E72300A066E1 /* MMCQ.swift */,
+				E20953DC2BC9E72300A066E1 /* Quantizer.swift */,
+				E20953E12BC9E72300A066E1 /* Util.swift */,
+				E20953E22BC9E72300A066E1 /* Vbox.swift */,
+				E20953DB2BC9E72300A066E1 /* Vibrant.swift */,
+				E20953DD2BC9E72300A066E1 /* VibrantColors.swift */,
+			);
+			path = SwiftVibrant;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		E20953C92BC9E6E000A066E1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		E20953CD2BC9E6E000A066E1 /* SwiftVibrant */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E20953D52BC9E6E000A066E1 /* Build configuration list for PBXNativeTarget "SwiftVibrant" */;
+			buildPhases = (
+				E20953C92BC9E6E000A066E1 /* Headers */,
+				E20953CA2BC9E6E000A066E1 /* Sources */,
+				E20953CB2BC9E6E000A066E1 /* Frameworks */,
+				E20953CC2BC9E6E000A066E1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftVibrant;
+			productName = SwiftVibrant;
+			productReference = E20953CE2BC9E6E000A066E1 /* SwiftVibrant.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E20953C52BC9E6E000A066E1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					E20953CD2BC9E6E000A066E1 = {
+						CreatedOnToolsVersion = 15.3;
+						LastSwiftMigration = 1530;
+					};
+				};
+			};
+			buildConfigurationList = E20953C82BC9E6E000A066E1 /* Build configuration list for PBXProject "SwiftVibrant" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E20953C42BC9E6E000A066E1;
+			productRefGroup = E20953CF2BC9E6E000A066E1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E20953CD2BC9E6E000A066E1 /* SwiftVibrant */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E20953CC2BC9E6E000A066E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E20953CA2BC9E6E000A066E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E20953E42BC9E72300A066E1 /* Filter.swift in Sources */,
+				E20953E62BC9E72300A066E1 /* Image.swift in Sources */,
+				E20953EE2BC9E72300A066E1 /* Vbox.swift in Sources */,
+				E20953E72BC9E72300A066E1 /* Vibrant.swift in Sources */,
+				E20953EB2BC9E72300A066E1 /* MMCQ.swift in Sources */,
+				E20953EA2BC9E72300A066E1 /* ColorConverters.swift in Sources */,
+				E20953E82BC9E72300A066E1 /* Quantizer.swift in Sources */,
+				E20953E92BC9E72300A066E1 /* VibrantColors.swift in Sources */,
+				E20953ED2BC9E72300A066E1 /* Util.swift in Sources */,
+				E20953E52BC9E72300A066E1 /* Generator.swift in Sources */,
+				E20953EC2BC9E72300A066E1 /* Constants.swift in Sources */,
+				E20953EF2BC9E72300A066E1 /* Builder.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		E20953D32BC9E6E000A066E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E20953D42BC9E6E000A066E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E20953D62BC9E6E000A066E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.blacksapote.SwiftVibrant;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = auto;
+				SKIP_INSTALL = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E20953D72BC9E6E000A066E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.blacksapote.SwiftVibrant;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = auto;
+				SKIP_INSTALL = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E20953C82BC9E6E000A066E1 /* Build configuration list for PBXProject "SwiftVibrant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E20953D32BC9E6E000A066E1 /* Debug */,
+				E20953D42BC9E6E000A066E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E20953D52BC9E6E000A066E1 /* Build configuration list for PBXNativeTarget "SwiftVibrant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E20953D62BC9E6E000A066E1 /* Debug */,
+				E20953D72BC9E6E000A066E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E20953C52BC9E6E000A066E1 /* Project object */;
+}

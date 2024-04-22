@@ -7,15 +7,20 @@
 //
 
 import Foundation
-import UIKit
+
+#if os(iOS)
+  import UIKit
+#elseif os(macOS)
+  import AppKit
+#endif
 
 public class Vibrant {
     
     public struct Options {
-        var colorCount: Int = 64
-        
-        var quality: Int = 5
-        
+        public var colorCount: Int = 64
+
+        public var quality: Int = 5
+
         var quantizer: Quantizer.quantizer = Quantizer.defaultQuantizer
         
         var generator: Generator.generator = Generator.defaultGenerator
@@ -25,24 +30,69 @@ public class Vibrant {
         var filters: [Filter] = [Filter.defaultFilter]
         
         fileprivate var combinedFilter: Filter?
-    }
-    
-    public static func from( _ src: UIImage)->Builder {
-        return Builder(src)
+
+        public init() {}
     }
 
+    #if os(iOS)
+      public static func from( _ src: UIImage)->Builder {
+          return Builder(src)
+      }
+    #elseif os(macOS)
+      public static func from( _ src: NSImage)->Builder {
+          return Builder(src)
+      }
+    #endif
+
+    #if os(iOS)
+      public static func from( _ data: Data)->Builder {
+          return Builder(UIImage(data: data))
+      }
+    #elseif os(macOS)
+      public static func from( _ data: Data)->Builder {
+          return Builder(NSImage(data: data)!)
+      }
+    #endif
+
     var opts: Options
-    var src: UIImage
-    
+
+    #if os(iOS)
+      var src: UIImage
+    #elseif os(macOS)
+      var src: NSImage
+    #endif
+
     private var _palette: Palette?
     public var palette: Palette? { _palette }
-    
-    public init(src: UIImage, opts: Options?) {
-        self.src = src
-        self.opts = opts ?? Options()
-        self.opts.combinedFilter = Filter.combineFilters(filters: self.opts.filters)
-    }
-    
+
+    #if os(iOS)
+      public init(src: UIImage, opts: Options?) {
+          self.src = src
+          self.opts = opts ?? Options()
+          self.opts.combinedFilter = Filter.combineFilters(filters: self.opts.filters)
+      }
+    #elseif os(macOS)
+      public init(src: NSImage, opts: Options?) {
+          self.src = src
+          self.opts = opts ?? Options()
+          self.opts.combinedFilter = Filter.combineFilters(filters: self.opts.filters)
+      }
+    #endif
+
+    #if os(iOS)
+      public init(data: Data, opts: Options?) {
+          self.src = UIImage(data: data)
+          self.opts = opts ?? Options()
+          self.opts.combinedFilter = Filter.combineFilters(filters: self.opts.filters)
+      }
+    #elseif os(macOS)
+      public init(data: Data, opts: Options?) {
+          self.src = NSImage(data: data)!
+          self.opts = opts ?? Options()
+          self.opts.combinedFilter = Filter.combineFilters(filters: self.opts.filters)
+      }
+    #endif
+
     static func process(image: Image, opts: Options)->Palette {
         let quantizer = opts.quantizer
         let generator = opts.generator

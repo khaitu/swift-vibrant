@@ -7,8 +7,14 @@
 //
 
 import Foundation
-import UIKit
 
+#if os(iOS)
+  import UIKit
+#elseif os(macOS)
+  import AppKit
+#endif
+
+import SwiftUI
 
 struct DELTAE94_DIFF_STATUS {
     static let NA:Int = 0
@@ -27,6 +33,7 @@ struct newErr: Error {
     let message: String
 }
 
+#if os(iOS)
 public func uiColorToRgb(_ color: UIColor)->RGB {
     var r: CGFloat = 0
     var g: CGFloat = 0
@@ -34,10 +41,31 @@ public func uiColorToRgb(_ color: UIColor)->RGB {
     color.getRed(&r, green: &g, blue: &b, alpha: nil)
     return (UInt8(r * 255), UInt8(g * 255), UInt8(b * 255))
 }
+#elseif os(macOS)
+public func uiColorToRgb(_ color: NSColor)->RGB {
+    var r: CGFloat = 0
+    var g: CGFloat = 0
+    var b: CGFloat = 0
+    color.getRed(&r, green: &g, blue: &b, alpha: nil)
+    return (UInt8(r * 255), UInt8(g * 255), UInt8(b * 255))
+}
+#endif
 
+#if os(iOS)
 public func rgbToUIColor(_ r: UInt8, _ g: UInt8, _ b: UInt8)->UIColor {
     return UIColor.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: 1)
 }
+#elseif os(macOS)
+public func rgbToUIColor(_ r: UInt8, _ g: UInt8, _ b: UInt8)->NSColor {
+    return NSColor.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: 1)
+}
+#endif
+
+public func rgbToColor(_ r: UInt8, _ g: UInt8, _ b: UInt8)->SwiftUI.Color {
+    return SwiftUI.Color.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255)
+}
+
+#if os(iOS)
 public func uiColorToHsl(_ color: UIColor)->HSL {
     var h:CGFloat = 0
     var s:CGFloat = 0
@@ -45,10 +73,25 @@ public func uiColorToHsl(_ color: UIColor)->HSL {
     color.getHue(&h, saturation: &s, brightness: &l, alpha: nil)
     return (Double(h),Double(s),Double(l))
 }
+#elseif os(macOS)
+public func uiColorToHsl(_ color: NSColor)->HSL {
+    var h:CGFloat = 0
+    var s:CGFloat = 0
+    var l:CGFloat = 0
+    color.getHue(&h, saturation: &s, brightness: &l, alpha: nil)
+    return (Double(h),Double(s),Double(l))
+}
+#endif
+
+#if os(iOS)
 public func hslToUIColor(_ h: Double, _ s: Double, _ l: Double)->UIColor {
     return UIColor.init(hue: CGFloat(h), saturation: CGFloat(s), brightness: CGFloat(l), alpha: 1)
 }
-
+#elseif os(macOS)
+public func hslToUIColor(_ h: Double, _ s: Double, _ l: Double)->NSColor {
+    return NSColor.init(hue: CGFloat(h), saturation: CGFloat(s), brightness: CGFloat(l), alpha: 1)
+}
+#endif
 
 public func hexToRgb(_ hex: String)->RGB? {
     let r, g, b: UInt8

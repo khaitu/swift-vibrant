@@ -18,7 +18,12 @@
 //  https://github.com/SvenWoltmann/color-thief-java
 
 import Foundation
-import UIKit
+
+#if os(iOS)
+  import UIKit
+#elseif os(macOS)
+  import AppKit
+#endif
 
 /// MMCQ (modified median cut quantization) algorithm from
 /// the Leptonica library (http://www.leptonica.com/).
@@ -42,10 +47,16 @@ public struct Color {
         self.g = g
         self.b = b
     }
-    
-    public func makeUIColor() -> UIColor {
-        return UIColor(red: CGFloat(r) / CGFloat(255), green: CGFloat(g) / CGFloat(255), blue: CGFloat(b) / CGFloat(255), alpha: CGFloat(1))
-    }
+
+    #if os(iOS)
+      public func makeUIColor() -> UIColor {
+          return UIColor(red: CGFloat(r) / CGFloat(255), green: CGFloat(g) / CGFloat(255), blue: CGFloat(b) / CGFloat(255), alpha: CGFloat(1))
+      }
+    #elseif os(macOS)
+      public func makeUIColor() -> NSColor {
+          return NSColor(red: CGFloat(r) / CGFloat(255), green: CGFloat(g) / CGFloat(255), blue: CGFloat(b) / CGFloat(255), alpha: CGFloat(1))
+      }
+    #endif
 }
 
 enum ColorChannel {
